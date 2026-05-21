@@ -5,7 +5,7 @@ import { PERSONAL_INFO, STATS } from '../../utils/constants';
 import { scrollToSection } from '../../hooks/useScrollSpy';
 import FadeIn from '../animations/FadeIn';
 import RadialGradientBackground from '../backgrounds/RadialGradientBackground';
-import portrait from '../../../public/images/projects/projectimage.PNG'
+import portrait from '/images/projects/projectimage.PNG'
 
 
 const Hero = () => {
@@ -104,6 +104,14 @@ const Hero = () => {
                 </FadeIn>
             </div>
         </div>
+        
+        {/* Scroll Indicator */}
+        <button
+            onClick={() => scrollToSection('about')}
+            className='absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce'
+        >
+            <ChevronDown className='w-8 h-8 text-primary' />
+        </button>
     </section>
   )
 }
