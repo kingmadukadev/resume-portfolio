@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, MapPin, MessageSquare, Send } from 'lucide-react';
 import { SiGithub, SiX } from 'react-icons/si';
 import { LucideMapPin } from 'lucide-react';
+import { FaLinkedinIn } from 'react-icons/fa6';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../../utils/constants';
 import FadeIn from '../animations/FadeIn';
 

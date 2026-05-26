@@ -11,9 +11,9 @@ export const PERSONAL_INFO = {
 };
 
 export const SOCIAL_LINKS = {
-    github: "",
-    twitter: "",
-    linkedin: "",
+    github: "https://github.com/kingmadukadev",
+    twitter: "https://x.com/kingmaduka__?s=21&t=kx7pwuVJd5KXVARbcvisNA",
+    linkedin: "https://www.linkedin.com/in/chibuike-maduka-489a8726a?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
 };
 
 export const STATS = [
