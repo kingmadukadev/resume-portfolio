@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Mail, MapPin, MessageSquare, Send } from 'lucide-react';
 import { SiGithub, SiX } from 'react-icons/si';
 import { LucideMapPin } from 'lucide-react';
@@ -22,24 +23,53 @@ const Contact = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (!formData.name || !formData.email || !formData.message) {
-            setStatus({ type: 'error', message: 'Please fill in all fields' })
-            return;
-        }
+    if (!formData.name || !formData.email || !formData.message) {
+        setStatus({ type: 'error', message: 'Please fill in all fields' });
+        return;
+    }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailRegex.test(formData.email)) {
-            setStatus({ type: 'error', message: 'Please enter a valid email' });
-            return;
-        }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        setStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' })
-        setFormData({ name: '', email: '', message: '' });
+    if (!emailRegex.test(formData.email)) {
+        setStatus({ type: 'error', message: 'Please enter a valid email' });
+        return;
+    }
+
+    emailjs.send(
+        'service_3b2lg5a',
+        'template_fhjnd5w',
+        {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+        },
+        'Mk8Ye0X4YqwkUjSJN'
+    )
+    .then(() => {
+        setStatus({
+            type: 'success',
+            message: 'Message sent successfully! I\'ll get back to you soon.'
+        });
+
+        setFormData({
+            name: '',
+            email: '',
+            message: ''
+        });
 
         setTimeout(() => setStatus({ type: '', message: '' }), 5000);
-    };
+    })
+    .catch((error) => {
+    console.log('EMAILJS ERROR:', error);
+
+    setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
+    });
+});
+};
 
     const socialIcons = {
         github: SiGithub,

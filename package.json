@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-
   "homepage": "https://github.com/kingmadukadev/resume-portfolio.git",
   "scripts": {
     "dev": "vite",
@@ -14,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.3.0",
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",
